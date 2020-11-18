@@ -2,7 +2,20 @@
  * @fileoverview Storage Helpers
  */
 
+var localStorage = localStorage || {
+    _store: [],
+    setItem: function (key, value) {
+        this._store[key] = value;
+    },
+    getItem: function (key) {
+        return this._store[key];
+    }
+};
+
+
 class Storage {
+
+    constructor() { }
 
     /**
      * @description Set value to storage wth key
@@ -41,9 +54,9 @@ class Storage {
      * @param {string} key 
      */
     hasKey = function (key) {
-        return (this.get(key) !== null);
+        return (localStorage.getItem(key) !== null);
     }
 
 };
 
-module.exports = { Storage };
+module.exports = Storage;

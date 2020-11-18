@@ -3,14 +3,17 @@
 const Storage = require('../src/Storage');
 
 describe('Storage-js Library', function () {
-    let storage;
+    // let storage = new Storage();
 
     const TEST_KEY = 'foo';
+    const TEST_KEY2 = 'foo2';
     const TEST_VALUE = 'bar';
 
+    var storage;
+
     beforeAll(function () {
-        storage = new Storage();
         //console.log('Starting tests');
+        storage = new Storage();
     });
 
     afterAll(function () {
@@ -23,34 +26,48 @@ describe('Storage-js Library', function () {
 
     afterEach(function () {
         //console.log('test finished.');
-        storage.delete(TEST_KEY);
     });
 
     //set
     describe('set', function () {
         it('success', function () {
+            //storage = new Storage();
             storage.set(TEST_KEY, TEST_VALUE);
-            expect(storage.hasKey(TEST_KEY)).is(true);
+            let isSet = storage.hasKey(TEST_KEY);
+            expect(isSet).toBe(true);
         });
     })
 
     //get
     describe('get', function () {
         it('success', function () {
+            //storage = new Storage();
             storage.set(TEST_KEY, TEST_VALUE);
-
             let value = storage.get(TEST_KEY);
-            expect(value).toEqual(TEST_VALUE);
+            expect(TEST_VALUE).toEqual(value);
         });
     })
 
     //haskey
-    describe('hasKey', function () {
+    describe('haskey', function () {
         it('success', function () {
+            //storage = new Storage();
             storage.set(TEST_KEY, TEST_VALUE);
+            let isSet = storage.hasKey(TEST_KEY);
+            expect(isSet).toBe(true);
+        });
 
-            let hasKey = storage.hasKey(TEST_KEY);
-            expect(hasKey).is(true);
+        it('fail-not set', function () {
+            //storage = new Storage();
+            let isSet = storage.hasKey(TEST_KEY);
+            expect(isSet).toBe(false);
+        });
+
+        it('fail-wrong key', function () {
+            //storage = new Storage();
+            storage.set(TEST_KEY, TEST_VALUE);
+            let isSet = storage.hasKey(TEST_KEY2);
+            expect(isSet).toBe(false);
         });
     })
 });
