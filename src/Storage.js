@@ -2,7 +2,7 @@
  * @fileoverview Storage Helpers
  */
 
-var localStorage = localStorage || {
+var localStorage = localStorage || { // Mock Local Storage for testing
     _store: [],
     setItem: function (key, value) {
         this._store[key] = value;
