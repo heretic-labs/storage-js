@@ -9,6 +9,15 @@ var localStorage = localStorage || {
     },
     getItem: function (key) {
         return this._store[key];
+    },
+    removeItem: function (key) {
+        let i = this._store.indexOf(key);
+        if (i > -1) {
+            this._store.splice(i, 1);
+        }
+    },
+    clear: function () {
+        this._store = [];
     }
 };
 
@@ -32,7 +41,11 @@ class Storage {
      * @returns {string} value from key
      */
     get = function (key) {
-        return localStorage.getItem(key);
+        let value = localStorage.getItem(key);
+        if (typeof value === 'undefined') {
+            value = null;
+        }
+        return value;
     }
 
     /**
@@ -54,9 +67,18 @@ class Storage {
      * @param {string} key 
      */
     hasKey = function (key) {
-        return (localStorage.getItem(key) !== null);
+        let value = this.get(key);
+        let has = (value !== null);
+        console.log('Storage.hasKey {key:' + key + ', value:' + value + ', hasKey:' + has + '}');
+        return has;
     }
 
+    /**
+     * @description remove contents of localstorage
+     */
+    clear = function () {
+        localStorage.clear();
+    }
 };
 
 module.exports = Storage;

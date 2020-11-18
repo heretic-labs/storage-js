@@ -6,7 +6,7 @@ describe('Storage-js Library', function () {
     // let storage = new Storage();
 
     const TEST_KEY = 'foo';
-    const TEST_KEY2 = 'foo2';
+    const TEST_KEY2 = 'badkey';
     const TEST_VALUE = 'bar';
 
     var storage;
@@ -26,12 +26,13 @@ describe('Storage-js Library', function () {
 
     afterEach(function () {
         //console.log('test finished.');
+        storage.clear();
     });
 
     //set
     describe('set', function () {
         it('success', function () {
-            //storage = new Storage();
+            
             storage.set(TEST_KEY, TEST_VALUE);
             let isSet = storage.hasKey(TEST_KEY);
             expect(isSet).toBe(true);
@@ -41,7 +42,7 @@ describe('Storage-js Library', function () {
     //get
     describe('get', function () {
         it('success', function () {
-            //storage = new Storage();
+            
             storage.set(TEST_KEY, TEST_VALUE);
             let value = storage.get(TEST_KEY);
             expect(TEST_VALUE).toEqual(value);
@@ -51,20 +52,17 @@ describe('Storage-js Library', function () {
     //haskey
     describe('haskey', function () {
         it('success', function () {
-            //storage = new Storage();
             storage.set(TEST_KEY, TEST_VALUE);
             let isSet = storage.hasKey(TEST_KEY);
             expect(isSet).toBe(true);
         });
 
         it('fail-not set', function () {
-            //storage = new Storage();
             let isSet = storage.hasKey(TEST_KEY);
             expect(isSet).toBe(false);
         });
 
         it('fail-wrong key', function () {
-            //storage = new Storage();
             storage.set(TEST_KEY, TEST_VALUE);
             let isSet = storage.hasKey(TEST_KEY2);
             expect(isSet).toBe(false);
