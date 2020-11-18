@@ -1,9 +1,9 @@
 'use strict';
 
+const { clear } = require('console');
 const Storage = require('../src/Storage');
 
 describe('Storage-js Library', function () {
-    // let storage = new Storage();
 
     const TEST_KEY = 'foo';
     const TEST_KEY2 = 'badkey';
@@ -67,5 +67,14 @@ describe('Storage-js Library', function () {
             let isSet = storage.hasKey(TEST_KEY2);
             expect(isSet).toBe(false);
         });
+    })
+
+    describe('clear', function () {
+        it('success', function () {
+            storage.set(TEST_KEY, TEST_VALUE);
+            storage.clear();
+            let hasKey = storage.hasKey(TEST_KEY);
+            expect(hasKey).toBe(false);
+        })
     })
 });

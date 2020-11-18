@@ -69,7 +69,6 @@ class Storage {
     hasKey = function (key) {
         let value = this.get(key);
         let has = (value !== null);
-        console.log('Storage.hasKey {key:' + key + ', value:' + value + ', hasKey:' + has + '}');
         return has;
     }
 
