@@ -1,0 +1,34 @@
+{
+  "name": "storage-js",
+  "version": "1.0.0",
+  "description": "Browser Storage Helper Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine",
+    "gulp": "node ./node_modules/gulp/bin/gulp.js php"
+  },
+  "directories": {
+    "test": "spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heretic-labs/storage-js.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Eric Miller <eric@pseudoninja.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heretic-labs/storage-js/issues"
+  },
+  "homepage": "https://github.com/heretic-labs/storage-js#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-jasmine": "^4.0.0",
+    "gulp-minify": "^3.1.0",
+    "jasmine": "^3.6.3"
+  }
+}
