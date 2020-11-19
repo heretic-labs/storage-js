@@ -1,5 +1,5 @@
 {
-  "name": "storage-js",
+  "name": "@heretic-labs/storage-js",
   "version": "1.0.0",
   "description": "Browser Storage Helper Library",
   "main": "index.js",
@@ -10,6 +10,9 @@
   "directories": {
     "test": "spec"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heretic-labs/storage-js.git"
@@ -18,7 +21,7 @@
     "javascript"
   ],
   "author": "Eric Miller <eric@pseudoninja.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/heretic-labs/storage-js/issues"
   },
