@@ -2,7 +2,7 @@
   "name": "@heretic-labs/storage-js",
   "version": "1.0.0",
   "description": "Browser Storage Helper Library",
-  "main": "index.js",
+  "main": "dist/Storage.js",
   "scripts": {
     "test": "jasmine",
     "gulp": "node ./node_modules/gulp/bin/gulp.js php"
