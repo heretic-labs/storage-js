@@ -8,10 +8,9 @@ gulp.task('clean', function () {
 });
 
 gulp.task('js', function () {
-    return gulp.src(["src/Storage.js"], { "allowEmpty": true })
-        //.pipe(concat("Storage.js"))
-        .pipe(minify())
-        .pipe(gulp.dest("dist"))
+    return gulp.src(["src/*.js"], { allowEmpty: true })
+        .pipe(concat("Storage.js"))
+        .pipe(gulp.dest("dist", { allowEmpty: true }))
         ;
 });
 

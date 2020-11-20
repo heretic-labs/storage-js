@@ -1,6 +1,6 @@
 {
   "name": "@heretic-labs/storage-js",
-  "version": "1.0.1",
+  "version": "1.0.1 ",
   "description": "Browser Storage Helper Library",
   "main": "dist/Storage.js",
   "scripts": {
